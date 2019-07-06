@@ -26,19 +26,6 @@ person.book
 1
 """
 
-
-# 自定义序列化器
-class HeroSerializer(serializers.Serializer):
-    """
-        英雄序列化器
-    """
-    # 1.定义字段
-    hname = serializers.CharField()
-    hgender = serializers.IntegerField()
-    hcomment = serializers.CharField()
-    is_delete = serializers.BooleanField()
-
-
 # 自定义序列化器,创建序列化器类
 class BookSerializer(serializers.Serializer):
 
@@ -66,6 +53,30 @@ class BookSerializer(serializers.Serializer):
     # 如果子表模型类中的外键有写related_name=",那么可以使用这个名字代替字表模型类名小写_set
     # related_name 即指定父表查询子表时使用什么字段
     # hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书', related_name='hero')  # 外键
-    hero = HeroSerializer(many=True)
+    # hero = HeroSerializer(many=True)
+
+
+# 自定义序列化器
+class HeroSerializer(serializers.Serializer):
+    """
+        英雄序列化器
+    """
+    # 1.定义字段
+    hname = serializers.CharField()
+    hgender = serializers.IntegerField()
+    hcomment = serializers.CharField()
+    is_delete = serializers.BooleanField()
+
+    # todo 关联对象嵌套序列化返回    子表返回时嵌套父表内容进行序列化返回
+    # 方法1: PrimaryKeyRelatedField 返回关联对象的id值\
+    # hbook = serializers.PrimaryKeyRelatedField(read_only=True)
+    # 方法2: SrtingRelatedField 返回关联对象模型类中的__str__的结hbook = serializers.PrimaryKeyRelatedField(many=True, read_only=True)果
+    # hbook = serializers.StringRelatedField()
+    # 如果想将关联的英雄信息全部(所有字段)都返回
+    # 方法3: HeroSerializer
+    hbook = BookSerializer()
+
+
+
 
 
