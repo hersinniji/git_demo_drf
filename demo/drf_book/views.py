@@ -51,14 +51,8 @@ class BooksView(View):
         book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
         # 4、返回保存后的图书数据
 
-        return JsonResponse(
-            {
-                'id': book.id,
-                'btitle': book.btitle,
-                'bread': book.bread,
-                'bpub_date': book.bpub_date
-            }
-        )
+        ser = BookSerializer(book)
+        return JsonResponse({'book_list': ser.data})
 
 
 class BookView(View):
@@ -83,9 +77,6 @@ class BookView(View):
     def put(self, request, pk):
         """
          更新图书信息
-        :param request:
-        :param pk:
-        :return:
         """
         # 1.判断书籍是否存在
         try:
@@ -104,13 +95,8 @@ class BookView(View):
         BookInfo.objects.filter(pk=pk).update(**json_dict)
         book = BookInfo.objects.get(pk=pk)
 
-        return JsonResponse({
-            'id': book.id,
-            'btitle': book.btitle,
-            'bpub_date': book.bpub_date,
-            'bread': book.bread,
-            'bcomment': book.bcomment,
-        })
+        ser = BookSerializer(book)
+        return JsonResponse({'book': ser.data})
 
     def delete(self, request, pk):
         """
