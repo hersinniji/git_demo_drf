@@ -28,7 +28,8 @@ class HeroInfo(models.Model):
     hname = models.CharField(max_length=20, verbose_name='名称')
     hgender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0, verbose_name='性别')
     hcomment = models.CharField(max_length=200, null=True, verbose_name='描述信息')
-    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
+    # 外键 related_name 指定父表查询字表的字段,如果没有指定的话使用子表小写名_set的方式进行查询
+    hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书', related_name='hero')
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
 
     class Meta:

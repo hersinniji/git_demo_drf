@@ -61,7 +61,11 @@ class BookSerializer(serializers.Serializer):
     # heroinfo_set = serializers.StringRelatedField(many=True)
     # 如果想将关联的英雄信息全部(所有字段)都返回,那么需要再定义一个英雄序列化器,如下所示:
     # 方法3: HeroSerializer
-    heroinfo_set = HeroSerializer(many=True)
+    # heroinfo_set = HeroSerializer(many=True)
 
+    # 如果子表模型类中的外键有写related_name=",那么可以使用这个名字代替字表模型类名小写_set
+    # related_name 即指定父表查询子表时使用什么字段
+    # hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书', related_name='hero')  # 外键
+    hero = HeroSerializer(many=True)
 
 
