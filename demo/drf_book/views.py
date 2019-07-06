@@ -25,34 +25,13 @@ class BooksView(View):
     def get(self, request):
         """
             获取所有图书
-        :param request:
-        :return:
         """
         # 1、查询图书表获取所有图书对象
         books = BookInfo.objects.all()
-
-        """
-        # 2、提取所有对象的字段内容
-        book_list = []
-        for book in books:
-            data = {
-                'id': book.id,
-                'btitle': book.btitle,
-                'bread': book.bread,
-                'bpub_date': book.bpub_date
-            }
-            book_list.append(data)
-        # 3、返回所有对象字段内容
-        return JsonResponse({'book_list': book_list})
-        """
-
-        # 1.初始化 生成序列化器对象,因为这里books是多个对象,所以要加many=True
+        # 2.初始化 生成序列化器对象,因为这里books是多个对象,所以要加many=True
         ser = BookSerializer(books, many=True)
-        # 2.使用序列化器对象的data方法获取序列化后的结果
-        data = ser.data
-        # print(type(data))
-        # print(data)
-        return JsonResponse({'book_list': data})
+        # 3.使用序列化器对象的data方法获取序列化后的结果,并返回
+        return JsonResponse({'book_list': ser.data})
 
     def post(self, request):
         """
@@ -92,30 +71,13 @@ class BookView(View):
     def get(self, request, pk):
         """
         获取单一图书数据
-        :param request:
-        :param pk:
-        :return:
         """
         # 1、根据pk值查询图书对象
         try:
             book=BookInfo.objects.get(id=pk)
         except:
             return JsonResponse({'error': '错误的id值'})
-
-        """
-         # 2、返回图书数据
-        return JsonResponse(
-            {
-                'id': book.id,
-                'btitle': book.btitle,
-                'bread': book.bread,
-                'bpub_date': book.bpub_date
-            }
-        )
-        """
-
         ser = BookSerializer(book)
-        print(type(ser.data))
         return JsonResponse({'book': ser.data})
 
     def put(self, request, pk):
