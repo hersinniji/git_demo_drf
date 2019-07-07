@@ -35,10 +35,15 @@ class BookSerializer(serializers.Serializer):
     """
     # 1.定义字段
     # 默认每个字段都有required=True的选项参数,这个参数就是要求前端必须传递参数
-    id = serializers.IntegerField(required=False)
+    # todo allow_null表明该字段是否允许传入为None, 默认为false, 需要配合form表单进行提交,不能使用json数据形式提交
+    # id = serializers.IntegerField(required=False)
+    id = serializers.IntegerField(read_only=True)  # 表示该字段只参数序列化返回
     btitle = serializers.CharField(max_length=20, min_length=5)
-    bpub_date = serializers.DateField(default="1999-10-10")
+    # bpub_date = serializers.DateField(default="1999-10-10")
+    # 这里可以使用default默认值,前端可以不传递参数
+    bpub_date = serializers.DateField(default="2019-07-07")
     bread = serializers.IntegerField(min_value=5, max_value=200)
+    bcomment = serializers.IntegerField(write_only=True)  # 表示该字段只参与反序列化过程
     is_delete = serializers.BooleanField(required=False)
     # h_name = serializers.BooleanField(write_only=True)
 
@@ -56,6 +61,20 @@ class BookSerializer(serializers.Serializer):
     # related_name 即指定父表查询子表时使用什么字段
     # hbook = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书', related_name='hero')  # 外键
     # hero = HeroSerializer(many=True)
+
+    # 自定义验证字段的方法
+    # ① 单一字段验证(validate后面跟验证字段名, attrs便是要验证的字段传入的内容)
+    def validate_btitle(self, attrs):
+        if attrs == 'python':
+            raise serializers.ValidationError('书名不能为python')
+        return attrs
+
+    # ② 对多个字段进行验证, 这里的attrs指的是所有要验证的数据集合
+    def validate(self, attrs):
+        if attrs['bcomment'] > attrs['bread']:
+            raise serializers.ValidationError('评论量不能大于阅读量')
+        return attrs
+
 
 
 # 自定义序列化器
