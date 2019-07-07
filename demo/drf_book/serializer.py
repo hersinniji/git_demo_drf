@@ -36,9 +36,9 @@ class BookSerializer(serializers.Serializer):
     # 1.定义字段
     # 默认每个字段都有required=True的选项参数,这个参数就是要求前端必须传递参数
     id = serializers.IntegerField(required=False)
-    btitle = serializers.CharField()
+    btitle = serializers.CharField(max_length=20, min_length=5)
     bpub_date = serializers.DateField(default="1999-10-10")
-    bread = serializers.IntegerField(min_value=1, max_value=200, required=False)
+    bread = serializers.IntegerField(min_value=5, max_value=200)
     is_delete = serializers.BooleanField(required=False)
     # h_name = serializers.BooleanField(write_only=True)
 
