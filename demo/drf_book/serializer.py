@@ -26,6 +26,7 @@ person.book
 1
 """
 
+
 # 自定义序列化器,创建序列化器类
 class BookSerializer(serializers.Serializer):
 
@@ -33,10 +34,11 @@ class BookSerializer(serializers.Serializer):
         图书序列化器
     """
     # 1.定义字段
-    id = serializers.IntegerField()
+    # 默认每个字段都有required=True的选项参数,这个参数就是要求前端必须传递参数
+    id = serializers.IntegerField(required=False)
     btitle = serializers.CharField()
     bpub_date = serializers.DateField(default="1999-10-10")
-    bread = serializers.IntegerField(min_value=1, max_value=200)
+    bread = serializers.IntegerField(min_value=1, max_value=200, required=False)
     is_delete = serializers.BooleanField(required=False)
     # h_name = serializers.BooleanField(write_only=True)
 

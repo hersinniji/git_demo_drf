@@ -42,11 +42,16 @@ class BooksView(View):
         # 1、获取保存的图书数据
         data = request.body.decode()
         data_dict = json.loads(data)
-        # 2、验证图书数据字段
+        # # 2、验证图书数据字段
         btitle = data_dict.get('btitle')
         bpub_date = data_dict.get('bpub_date')
-        if btitle is None or bpub_date is None:
-            return JsonResponse({'error': '缺少必要数据'})
+        # if btitle is None or bpub_date is None:
+        #     return JsonResponse({'error': '缺少必要数据'})
+
+        ser = BookSerializer(data=data_dict)
+        ser.is_valid()
+        print(ser.errors)
+
         # 3、保存图书
         book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
         # 4、返回保存后的图书数据
