@@ -49,9 +49,10 @@ class BooksView(View):
         #     return JsonResponse({'error': '缺少必要数据'})
 
         ser = BookSerializer(data=data_dict)
-        ser.is_valid()
-        print(ser.errors)
-
+        # 有异常的话,使用raise_exception直接返回异常信息
+        ser.is_valid(raise_exception=True)
+        # 验证成功后通过ser.validated_data获取验证后的数据
+        print(ser.validated_data)
         # 3、保存图书
         book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
         # 4、返回保存后的图书数据
