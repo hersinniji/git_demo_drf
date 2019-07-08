@@ -126,7 +126,9 @@ class HeroSerializer(serializers.Serializer):
 
 class BookModelSerializer(serializers.ModelSerializer):
     """
-    帮助我们自动生成序列化器字段
+    1.帮助我们自动生成序列化器字段
+    2.帮助实现create方法和update方法
+    3.如果在模型类中指定了唯一的参数(unique),会帮助实现唯一值验证方法
     """
 
     # todo 显示指明字段
@@ -144,6 +146,10 @@ class BookModelSerializer(serializers.ModelSerializer):
         # fields = "__all__"
         # 取反生成字段
         # exclude = ('btitle',)
+
+        # 给指定的字段增加一个read_only=True选项参数
+        read_only_fields = ('bpub_date',)
+
         # 添加或修改自动生成的选项参数  extra: 额外的
         extra_kwargs = {
             'bread': {'max_value': 100, 'min_value': 4},
