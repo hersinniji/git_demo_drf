@@ -124,6 +124,30 @@ class HeroSerializer(serializers.Serializer):
     hbook = BookSerializer()
 
 
+class BookModelSerializer(serializers.ModelSerializer):
+    """
+    帮助我们自动生成序列化器字段
+    """
 
+    # todo 显示指明字段
+    # 既可以修改原有的字段,也可以增加没有的字段
+    # 比如注册的时候,我们需要根据用户模型来定义用户序列化器,这个时候用户模型里面没有短信字段,\
+    # 但我们还要验证短信,这个时候就可以在这里增加序列化验证字段
+    bcomment = serializers.IntegerField(max_value=100, min_value=4)
+    sms_code = serializers.CharField(max_length=10, min_length=3)
+
+    class Meta:
+        # 指定根据哪个模型类生成的序列化字段
+        model = BookInfo
+        # 指定哪些字段生成序列化器字段
+        fields = ('btitle', 'bread', 'id', 'bcomment', 'sms_code', 'bpub_date')
+        # fields = "__all__"
+        # 取反生成字段
+        # exclude = ('btitle',)
+        # 添加或修改自动生成的选项参数  extra: 额外的
+        extra_kwargs = {
+            'bread': {'max_value': 100, 'min_value': 4},
+            'btitle': {'min_length': 4}
+        }
 
 
