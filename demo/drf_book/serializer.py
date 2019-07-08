@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from book.models import BookInfo
+
 """
 由一到多的访问语法：
 一对应的模型类对象.多对应的模型类名小写_set 例：
@@ -75,6 +77,16 @@ class BookSerializer(serializers.Serializer):
         if attrs['bcomment'] > attrs['bread']:
             raise serializers.ValidationError('评论量不能大于阅读量')
         return attrs
+
+    def create(self, validated_data):
+        """
+        封装保存数据业务
+        :param validated_data: 接收验证后的数据
+        :return:
+        """
+        book = BookInfo.objects.create(btitle=validated_data['btitle'], bpub_date=validated_data['bpub_date'])
+        # 返回保存后的对象
+        return book
 
 
 # 自定义序列化器

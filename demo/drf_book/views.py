@@ -64,11 +64,13 @@ class BooksView(View):
         ser = BookSerializer(data=json_dict)
         # 3.验证图书字段,验证不通过直接返回错误信息
         ser.is_valid(raise_exception=True)
-        # 4.增加图书信息
-        book = BookInfo.objects.create(btitle=ser.validated_data['btitle'], bpub_date=ser.validated_data['bpub_date'])
-        # 5.序列化返回数据
-        ser = BookSerializer(book)
-        # 6.返回响应
+        # # 4.增加图书信息
+        # book = BookInfo.objects.create(btitle=ser.validated_data['btitle'], bpub_date=ser.validated_data['bpub_date'])
+        # # 5.序列化返回数据
+        # ser = BookSerializer(book)
+        # 4.调用序列化器中封装的保存方法create
+        ser.save()
+        # 5.序列化返回操作,data方法即是获取序列化后的字典数据
         return JsonResponse(ser.data)
 
 
