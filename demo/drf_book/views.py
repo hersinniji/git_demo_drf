@@ -36,29 +36,40 @@ class BooksView(View):
     def post(self, request):
         """
             保存图书
-        :param request:
-        :return:
         """
-        # 1、获取保存的图书数据
-        data = request.body.decode()
-        data_dict = json.loads(data)
-        # # 2、验证图书数据字段
-        btitle = data_dict.get('btitle')
-        bpub_date = data_dict.get('bpub_date')
-        # if btitle is None or bpub_date is None:
-        #     return JsonResponse({'error': '缺少必要数据'})
+        """
+            # 1、获取保存的图书数据
+            data = request.body.decode()
+            data_dict = json.loads(data)
+            # # 2、验证图书数据字段
+            btitle = data_dict.get('btitle')
+            bpub_date = data_dict.get('bpub_date')
+            # if btitle is None or bpub_date is None:
+            #     return JsonResponse({'error': '缺少必要数据'})
+            ser = BookSerializer(data=data_dict)
+            # 有异常的话,使用raise_exception直接返回异常信息
+            ser.is_valid(raise_exception=True)
+            # 验证成功后通过ser.validated_data获取验证后的数据
+            print(ser.validated_data)
+            # 3、保存图书
+            book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
+            # 4、返回保存后的图书数据
+            ser = BookSerializer(book)
+            return JsonResponse({'book_list': ser.data})
+        """
 
-        ser = BookSerializer(data=data_dict)
-        # 有异常的话,使用raise_exception直接返回异常信息
+        # 1.获取保存的图书数据
+        json_dict = json.loads(request.body.decode())
+        # 2.通过反序列化获取前端提交的json数据
+        ser = BookSerializer(data=json_dict)
+        # 3.验证图书字段,验证不通过直接返回错误信息
         ser.is_valid(raise_exception=True)
-        # 验证成功后通过ser.validated_data获取验证后的数据
-        print(ser.validated_data)
-        # 3、保存图书
-        book = BookInfo.objects.create(btitle=btitle, bpub_date=bpub_date)
-        # 4、返回保存后的图书数据
-
+        # 4.增加图书信息
+        book = BookInfo.objects.create(btitle=ser.validated_data['btitle'], bpub_date=ser.validated_data['bpub_date'])
+        # 5.序列化返回数据
         ser = BookSerializer(book)
-        return JsonResponse({'book_list': ser.data})
+        # 6.返回响应
+        return JsonResponse(ser.data)
 
 
 class BookView(View):

@@ -1,8 +1,3 @@
-"""
-这里自定义序列化器时需要继承drf框架自带的模型
-"""
-
-
 from rest_framework import serializers
 
 """
@@ -26,6 +21,12 @@ person.book
 1
 """
 
+"""
+这里自定义序列化器时需要继承drf框架自带的模型
+"""
+# todo 序列化器里面对于字段的限制条件,只是方便其进行数据有效性验证.
+# 但要对数据进行增删改查等操作时,得按照最原始的额模型类进行判断,哪些数据应该传
+
 
 # 自定义序列化器,创建序列化器类
 class BookSerializer(serializers.Serializer):
@@ -41,7 +42,7 @@ class BookSerializer(serializers.Serializer):
     btitle = serializers.CharField(max_length=20, min_length=5)
     # bpub_date = serializers.DateField(default="1999-10-10")
     # 这里可以使用default默认值,前端可以不传递参数
-    bpub_date = serializers.DateField(default="2019-07-07")
+    bpub_date = serializers.DateField(default='2019-01-04')
     bread = serializers.IntegerField(min_value=5, max_value=200)
     bcomment = serializers.IntegerField(write_only=True)  # 表示该字段只参与反序列化过程
     is_delete = serializers.BooleanField(required=False)
@@ -74,7 +75,6 @@ class BookSerializer(serializers.Serializer):
         if attrs['bcomment'] > attrs['bread']:
             raise serializers.ValidationError('评论量不能大于阅读量')
         return attrs
-
 
 
 # 自定义序列化器
