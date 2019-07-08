@@ -1,6 +1,5 @@
 from django.conf.urls import url
-from django.contrib import admin
-from . import views, views_apiview, views_genericapiview, views_mixinview
+from . import views_mixinchildview
 urlpatterns = [
     # url(r'^book/$',views.BookView.as_view() ),
     # url(r'^hero/(?P<id>\d+)/$',views.HeroView.as_view() ),
@@ -14,6 +13,9 @@ urlpatterns = [
     # url(r'^drf_books/$', views_genericapiview.BooksAPIView.as_view()),
     # url(r'^drf_books/(?P<pk>\d+)/$', views_genericapiview.BookAPIView.as_view()),
     # 拓展类的使用
-    url(r'^drf_books/$', views_mixinview.BooksAPIView.as_view()),
-    url(r'^drf_books/(?P<pk>\d+)/$', views_mixinview.BookAPIView.as_view()),
+    # url(r'^drf_books/$', views_mixinview.BooksAPIView.as_view()),
+    # url(r'^drf_books/(?P<pk>\d+)/$', views_mixinview.BookAPIView.as_view()),
+    # 拓展类子类的使用
+    url(r'^drf_books/$', views_mixinchildview.BooksAPIView.as_view()),
+    url(r'^drf_books/(?P<pk>\d+)/$', views_mixinchildview.BookAPIView.as_view()),
 ]
