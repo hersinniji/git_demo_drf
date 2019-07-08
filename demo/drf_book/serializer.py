@@ -88,6 +88,20 @@ class BookSerializer(serializers.Serializer):
         # 返回保存后的对象
         return book
 
+    def update(self, instance, validated_data):
+        """
+        封装更新数据业务
+        :param instance: 接收要更新的数据对象
+        :param validated_data: 接收验证后的数据
+        :return:
+        """
+        # instance.btitle = validated_data['btitle']
+        # instance.bpub_date = validated_data['bpub_date']
+        # instance.save()
+        BookInfo.objects.filter(pk=instance.id).update(**validated_data)
+        # 返回更新后的数据对象
+        return instance
+
 
 # 自定义序列化器
 class HeroSerializer(serializers.Serializer):
