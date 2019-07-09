@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'drf_book.apps.DrfBookConfig',
     # 'corsheaders',
     'rest_framework',
-    # 'django_filters',  # 需要注册应用，
+    'django_filters',  # 需要注册应用，
 
 ]
 
@@ -177,9 +177,10 @@ REST_FRAMEWORK = {
         'a': '2/day',
         'b': '4/day'
     },
-    # #指定过滤方法
-    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    # 默认指定过滤方法
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     # # 指定异常处理的方法
     # 'EXCEPTION_HANDLER': 'book_view.utils.exception_handler'
+
 }
 

@@ -25,7 +25,9 @@ class BooksModelViewSet(ModelViewSet):
     # --- 局部指定对什么用户进行限流操作 throttle_classes
     # throttle_classes = [UserRateThrottle]
     # --- 按照类视图形式完成限流操作 throttle_scope
-    throttle_scope = 'a'
+    # throttle_scope = 'a'
+    # 指定过滤字段(指定查询字符串可以写的字段名)
+    filter_fields = ('bread', 'btitle')
 
     # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
     # todo 如何判断前端请求的方法是什么,通过self.action来获取
@@ -63,11 +65,11 @@ class BooksModelViewSet(ModelViewSet):
     request.query_params与Django标准的request.GET相同，只是更换了更正确的名称而已。
     """
 
-    # 按照书名查询数据
-    @action(methods=['get'], detail=True)  # 如果自定义方法中需要一个pk值的话,detail=True,系统则会自动生成
-    def find(self, request, pk):
-        data = request.query_params
-        btitle = data.get('btitle')
-        book = BookInfo.objects.get(btitle=btitle)
-        ser = self.get_serializer(book)
-        return Response(ser.data)
+    # # 按照书名查询数据
+    # @action(methods=['get'], detail=True)  # 如果自定义方法中需要一个pk值的话,detail=True,系统则会自动生成
+    # def find(self, request, pk):
+    #     data = request.query_params
+    #     btitle = data.get('btitle')
+    #     book = BookInfo.objects.get(btitle=btitle)
+    #     ser = self.get_serializer(book)
+    #     return Response(ser.data)
