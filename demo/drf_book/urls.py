@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from rest_framework.routers import SimpleRouter
+from rest_framework.routers import SimpleRouter, DefaultRouter
 
 from . import views_modelviewset
 urlpatterns = [
@@ -40,7 +40,14 @@ urlpatterns = [
 # todo 如果想用自动生成路由的方法时, 类视图必须继承自视图集viewset
 # 自动生成路由方法: 生成路由类对象
 # 自定义的方法要想自动生成路由,方法名上面写 @action(methods=['get/......'], detail=True/False)
-router = SimpleRouter()
+# router = SimpleRouter()
+# router.register('modelviewset_books', views_modelviewset.BooksModelViewSet, base_name='book')
+# print(router.urls)
+# urlpatterns += router.urls
+
+# DefaultRouter继承自SimpleRouter,使用方法完全一致
+# DefaultRouter会进行首页的匹配,自动生成首页的路由信息
+router = DefaultRouter()
 router.register('modelviewset_books', views_modelviewset.BooksModelViewSet, base_name='book')
-print(router.urls)
+# print(router.urls)
 urlpatterns += router.urls
