@@ -1,4 +1,6 @@
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -13,6 +15,10 @@ class BooksModelViewSet(ModelViewSet):
     queryset = BookInfo.objects.all()
     # ② 指定序列化器
     serializer_class = BookSerializer
+    # ③ 指定认证
+    authentication_classes = [BasicAuthentication, SessionAuthentication]
+    # ④ 指定权限
+    permission_classes = [IsAuthenticated]
 
     # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
     # todo 如何判断前端请求的方法是什么,通过self.action来获取
@@ -22,9 +28,8 @@ class BooksModelViewSet(ModelViewSet):
         # self.action获取前端要请求的方法名
         if self.action == 'last_book':
             return BookSerializer
-        elif self.action == 'find':
+        else:
             return BookModelSerializer
-
 
     """自定义查询"""
     # todo 只用视图集时,如果自定义了一个方法,那么需要把这个方法名定义在请求路径当中

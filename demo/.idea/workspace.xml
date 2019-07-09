@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff8bf0b-fa18-4376-bec8-137e87c8042d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drf_book/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/drf_book/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drf_book/views_modelviewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/drf_book/views_modelviewset.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,20 +14,46 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="book@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="book@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="book@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="book: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drf_book/serializer.py">
+        <entry file="file://$PROJECT_DIR$/demo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="157" column="25" selection-start-line="157" selection-start-column="6" selection-end-line="157" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#3379#3986#0" />
-              </folding>
+            <state relative-caret-position="317">
+              <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -32,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drf_book/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="42" selection-start-line="42" selection-end-line="45" selection-end-column="28" />
+            <state relative-caret-position="258">
+              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -44,11 +73,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drf_book/views_modelviewset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="41" />
+            <state relative-caret-position="-40">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <element signature="e#591#602#1" />
+                <element signature="e#0#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drf_book/serializer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="185" column="34" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#3379#3986#0" />
               </folding>
             </state>
           </provider>
@@ -86,6 +127,7 @@
         <option value="$PROJECT_DIR$/drf_book/view_viewset.py" />
         <option value="$PROJECT_DIR$/drf_book/views_genericviewset.py" />
         <option value="$PROJECT_DIR$/drf_book/serializer.py" />
+        <option value="$PROJECT_DIR$/demo/settings.py" />
         <option value="$PROJECT_DIR$/drf_book/views_modelviewset.py" />
         <option value="$PROJECT_DIR$/drf_book/urls.py" />
       </list>
@@ -121,8 +163,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -181,7 +225,7 @@
       <updated>1562408201070</updated>
       <workItem from="1562408205089" duration="16936000" />
       <workItem from="1562515506999" duration="18795000" />
-      <workItem from="1562657706581" duration="8716000" />
+      <workItem from="1562657706581" duration="13056000" />
     </task>
     <task id="LOCAL-00001" summary="序列化器的基本使用,完成序列化返回数据">
       <created>1562408563673</created>
@@ -330,23 +374,31 @@
       <option name="project" value="LOCAL" />
       <updated>1562666304732</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="两个路由类的区别使用(SimpleRouter和DefaultRouter)">
+      <created>1562666631986</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1562666631986</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44447000" />
+    <option name="totallyTimeSpent" value="48787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1377" height="905" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16602908" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17674063" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32898173" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3524804" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37989557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23890339" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -354,14 +406,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32907802" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="manage.py@demo" order="10" weight="0.32765958" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.21018277" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.37989557" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32765958" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.16373374" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17249797" />
@@ -412,7 +464,8 @@
     <MESSAGE value="拓展视图集modelviewset中自定义方法的使用" />
     <MESSAGE value="get_serializer_class方法的使用(根据不同的请求方法返回不同的序列化器)" />
     <MESSAGE value="视图集使用自动生成路由方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="视图集使用自动生成路由方法" />
+    <MESSAGE value="两个路由类的区别使用(SimpleRouter和DefaultRouter)" />
+    <option name="LAST_COMMIT_MESSAGE" value="两个路由类的区别使用(SimpleRouter和DefaultRouter)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -523,14 +576,19 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/drf_book/views_modelviewset.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="50" />
+          <url>file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/generics.py</url>
+          <line>200</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/drf_book/views_modelviewset.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="51" />
+          <url>file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/mixins.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/generics.py</url>
+          <line>111</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -674,20 +732,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/mixins.py">
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="193">
+          <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/viewsets.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7e5bd5bb-b91c-4a85-8402-af492ded33cb/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://7e5bd5bb-b91c-4a85-8402-af492ded33cb/schema/book/table/tb_books">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="2e7652ed-ced3-4bdb-85e3-761cbd66dc7c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7e5bd5bb-b91c-4a85-8402-af492ded33cb/schema/book/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="2e7652ed-ced3-4bdb-85e3-761cbd66dc7c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="e#676#715#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="185">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
         </state>
       </provider>
     </entry>
@@ -698,24 +774,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/django/core/handlers/base.py">
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/viewsets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        <state relative-caret-position="132">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+          <folding>
+            <element signature="e#676#715#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/serializers.py">
+    <entry file="file://$PROJECT_DIR$/demo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+        <state relative-caret-position="317">
+          <caret line="154" column="28" selection-start-line="154" selection-start-column="28" selection-end-line="154" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/renderers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="573" selection-start-line="573" selection-end-line="573" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="99" column="6" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drf_book/serializer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="157" column="25" selection-start-line="157" selection-start-column="6" selection-end-line="157" selection-end-column="25" />
+        <state relative-caret-position="464">
+          <caret line="185" column="34" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#3379#3986#0" />
@@ -723,35 +830,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="496" selection-start-line="496" selection-end-line="496" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/hersin_django_vir1/lib/python3.5/site-packages/rest_framework/generics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drf_book/views_modelviewset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="41" />
+        <state relative-caret-position="-40">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="e#591#602#1" />
+            <element signature="e#0#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drf_book/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="42" selection-start-line="42" selection-end-line="45" selection-end-column="28" />
+        <state relative-caret-position="258">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>

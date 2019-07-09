@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter, DefaultRouter
 
+from drf_book import view_viewset
 from . import views_modelviewset
 urlpatterns = [
     # url(r'^book/$',views.BookView.as_view() ),
@@ -21,8 +22,8 @@ urlpatterns = [
     # url(r'^drf_books/$', views_mixinchildview.BooksAPIView.as_view()),
     # url(r'^drf_books/(?P<pk>\d+)/$', views_mixinchildview.BookAPIView.as_view()),
     # viewset视图集使用
-    # url(r'^viewset_books/$', view_viewset.BooksViewSet.as_view({'get': 'list', 'post': 'create'})),
-    # url(r'^viewset_books/(?P<pk>\d+)/$', view_viewset.BookViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
+    url(r'^viewset_books/$', view_viewset.BooksViewSet.as_view({'get': 'list', 'post': 'create'})),
+    url(r'^viewset_books/(?P<pk>\d+)/$', view_viewset.BookViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
     # genericviewset视图集使用
     # url(r'^genericviewset_books/$', views_genericviewset.BooksGenericViewSet.as_view({'get': 'list', 'post': 'create'})),
     # url(r'^genericviewset_books/(?P<pk>\d+)/$', views_genericviewset.BookGenericViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
@@ -45,8 +46,8 @@ urlpatterns = [
 # print(router.urls)
 # urlpatterns += router.urls
 
-# DefaultRouter继承自SimpleRouter,使用方法完全一致
-# DefaultRouter会进行首页的匹配,自动生成首页的路由信息
+# DefaultRouter继承自SimpleRouter,使用方法完全一致,区别就是是否生成首页匹配
+# todo DefaultRouter会进行首页的匹配,自动生成首页的路由信息
 router = DefaultRouter()
 router.register('modelviewset_books', views_modelviewset.BooksModelViewSet, base_name='book')
 # print(router.urls)
