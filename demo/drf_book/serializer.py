@@ -44,10 +44,10 @@ class BookSerializer(serializers.Serializer):
     btitle = serializers.CharField(max_length=20, min_length=5)
     # bpub_date = serializers.DateField(default="1999-10-10")
     # 这里可以使用default默认值,前端可以不传递参数
-    bpub_date = serializers.DateField(default='2019-01-04')
-    bread = serializers.IntegerField(min_value=5, max_value=200)
-    bcomment = serializers.IntegerField(write_only=True)  # 表示该字段只参与反序列化过程
-    is_delete = serializers.BooleanField(required=False)
+    # bpub_date = serializers.DateField(default='2019-01-04')
+    # bread = serializers.IntegerField(min_value=5, max_value=200)
+    # bcomment = serializers.IntegerField(write_only=True)  # 表示该字段只参与反序列化过程
+    # is_delete = serializers.BooleanField(required=False)
     # h_name = serializers.BooleanField(write_only=True)
 
     # todo 关联对象嵌套序列化返回    父表返回时嵌套子表内容进行序列化返回
@@ -124,6 +124,37 @@ class HeroSerializer(serializers.Serializer):
     hbook = BookSerializer()
 
 
+# class BookModelSerializer(serializers.ModelSerializer):
+#     """
+#     1.帮助我们自动生成序列化器字段
+#     2.帮助实现create方法和update方法
+#     3.如果在模型类中指定了唯一的参数(unique),会帮助实现唯一值验证方法
+#     """
+#
+#     # todo 显示指明字段
+#     # 既可以修改原有的字段,也可以增加没有的字段
+#     # 比如注册的时候,我们需要根据用户模型来定义用户序列化器,这个时候用户模型里面没有短信字段,\
+#     # 但我们还要验证短信,这个时候就可以在这里增加序列化验证字段
+#     bcomment = serializers.IntegerField(max_value=100, min_value=4)
+#     sms_code = serializers.CharField(max_length=10, min_length=3)
+#
+#     class Meta:
+#         # 指定根据哪个模型类生成的序列化字段
+#         model = BookInfo
+#         # 指定哪些字段生成序列化器字段
+#         fields = ('btitle', 'bread', 'id', 'bcomment', 'sms_code', 'bpub_date')
+#         # fields = "__all__"
+#         # 取反生成字段
+#         # exclude = ('btitle',)
+#
+#         # 给指定的字段增加一个read_only=True选项参数
+#         read_only_fields = ('bpub_date',)
+#
+#         # 添加或修改自动生成的选项参数  extra: 额外的
+#         extra_kwargs = {
+#             'bread': {'max_value': 100, 'min_value': 4},
+#             'btitle': {'min_length': 4}
+#         }
 class BookModelSerializer(serializers.ModelSerializer):
     """
     1.帮助我们自动生成序列化器字段
@@ -136,24 +167,25 @@ class BookModelSerializer(serializers.ModelSerializer):
     # 比如注册的时候,我们需要根据用户模型来定义用户序列化器,这个时候用户模型里面没有短信字段,\
     # 但我们还要验证短信,这个时候就可以在这里增加序列化验证字段
     bcomment = serializers.IntegerField(max_value=100, min_value=4)
-    sms_code = serializers.CharField(max_length=10, min_length=3)
+    # sms_code = serializers.CharField(max_length=10, min_length=3)
 
     class Meta:
         # 指定根据哪个模型类生成的序列化字段
         model = BookInfo
         # 指定哪些字段生成序列化器字段
-        fields = ('btitle', 'bread', 'id', 'bcomment', 'sms_code', 'bpub_date')
+        fields = ('btitle', 'bcomment')
         # fields = "__all__"
         # 取反生成字段
         # exclude = ('btitle',)
 
         # 给指定的字段增加一个read_only=True选项参数
-        read_only_fields = ('bpub_date',)
+        # read_only_fields = ('bpub_date',)
 
         # 添加或修改自动生成的选项参数  extra: 额外的
         extra_kwargs = {
-            'bread': {'max_value': 100, 'min_value': 4},
+            # 'bread': {'max_value': 100, 'min_value': 4},
             'btitle': {'min_length': 4}
         }
+
 
 

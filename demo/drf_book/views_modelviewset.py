@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from book.models import BookInfo
-from drf_book.serializer import BookSerializer
+from drf_book.serializer import BookSerializer, BookModelSerializer
 
 
 # 对同一张表进行增删改查多个操作时可以用视图集
@@ -12,6 +12,18 @@ class BooksModelViewSet(ModelViewSet):
     queryset = BookInfo.objects.all()
     # ② 指定序列化器
     serializer_class = BookSerializer
+
+    # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
+    # todo 如何判断前端请求的方法是什么,通过self.action来获取
+    def get_serializer_class(self):
+        # get_serializer_class会被get_serializer调用
+        # 默认返回self.serializer_class
+        # self.action获取前端要请求的方法名
+        if self.action == 'last_book':
+            return BookSerializer
+        elif self.action == 'find':
+            return BookModelSerializer
+
 
     """自定义查询"""
     # todo 只用视图集时,如果自定义了一个方法,那么需要把这个方法名定义在请求路径当中
