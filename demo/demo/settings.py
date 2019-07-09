@@ -180,7 +180,7 @@ REST_FRAMEWORK = {
     # 默认指定过滤方法
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     # # 指定异常处理的方法
-    # 'EXCEPTION_HANDLER': 'book_view.utils.exception_handler'
+    'EXCEPTION_HANDLER': 'drf_book.utils.exception_handler'
 
 }
 

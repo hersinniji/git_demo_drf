@@ -1,3 +1,4 @@
+from django.db import DatabaseError
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.decorators import action
 from rest_framework.filters import OrderingFilter
@@ -55,6 +56,7 @@ class BooksModelViewSet(ModelViewSet):
     # 获取最后一本图书的数据
     @action(methods=['get'], detail=False)
     def last_book(self, request):
+        raise DatabaseError
         book = BookInfo.objects.latest('id')
         ser = self.get_serializer(book)
         return Response(ser.data)
