@@ -11,6 +11,9 @@ from drf_book.serializer import BookSerializer, BookModelSerializer
 
 
 # 对同一张表进行增删改查多个操作时可以用视图集
+from drf_book.utils import PageNum
+
+
 class BooksModelViewSet(ModelViewSet):
 
     # ① 指定查询集属性
@@ -33,6 +36,8 @@ class BooksModelViewSet(ModelViewSet):
     filter_backends = [OrderingFilter]
     # 指定排序字段
     ordering_fields = ('id', 'bread')
+    # 指定分页器
+    pagination_class = PageNum
 
     # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
     # todo 如何判断前端请求的方法是什么,通过self.action来获取
