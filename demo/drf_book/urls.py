@@ -1,4 +1,6 @@
 from django.conf.urls import url
+from rest_framework.routers import SimpleRouter
+
 from . import views_modelviewset
 urlpatterns = [
     # url(r'^book/$',views.BookView.as_view() ),
@@ -28,9 +30,17 @@ urlpatterns = [
     # url(r'^modelviewset_books/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'list', 'post': 'create'})),
     # url(r'^modelviewset_books/(?P<pk>\d+)/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
     # modelviewset视图集使用(增加功能函数)
-    url(r'^modelviewset_books/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'list', 'post': 'create'})),
-    url(r'^modelviewset_books/(?P<pk>\d+)/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
-    url(r'^modelviewset_books/last_book/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'last_book'})),
-    url(r'^modelviewset_books/find/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'find'})),
+    # url(r'^modelviewset_books/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'list', 'post': 'create'})),
+    # url(r'^modelviewset_books/(?P<pk>\d+)/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
+    # url(r'^modelviewset_books/last_book/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'last_book'})),
+    # url(r'^modelviewset_books/find/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'find'})),
 
 ]
+
+# todo 如果想用自动生成路由的方法时, 类视图必须继承自视图集viewset
+# 自动生成路由方法: 生成路由类对象
+# 自定义的方法要想自动生成路由,方法名上面写 @action(methods=['get/......'], detail=True/False)
+router = SimpleRouter()
+router.register('modelviewset_books', views_modelviewset.BooksModelViewSet, base_name='book')
+print(router.urls)
+urlpatterns += router.urls

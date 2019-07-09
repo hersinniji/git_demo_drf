@@ -1,3 +1,4 @@
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -28,6 +29,7 @@ class BooksModelViewSet(ModelViewSet):
     """自定义查询"""
     # todo 只用视图集时,如果自定义了一个方法,那么需要把这个方法名定义在请求路径当中
     # 获取最后一本图书的数据
+    @action(methods=['get'], detail=False)
     def last_book(self, request):
         book = BookInfo.objects.latest('id')
         ser = self.get_serializer(book)
@@ -50,7 +52,8 @@ class BooksModelViewSet(ModelViewSet):
     """
 
     # 按照书名查询数据
-    def find(self, request):
+    @action(methods=['get'], detail=True)  # 如果自定义方法中需要一个pk值的话,detail=True,系统则会自动生成
+    def find(self, request, pk):
         data = request.query_params
         btitle = data.get('btitle')
         book = BookInfo.objects.get(btitle=btitle)
