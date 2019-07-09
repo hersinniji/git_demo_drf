@@ -1,5 +1,6 @@
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.decorators import action
+from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.throttling import UserRateThrottle
@@ -27,7 +28,11 @@ class BooksModelViewSet(ModelViewSet):
     # --- 按照类视图形式完成限流操作 throttle_scope
     # throttle_scope = 'a'
     # 指定过滤字段(指定查询字符串可以写的字段名)
-    filter_fields = ('bread', 'btitle')
+    # filter_fields = ('bread', 'btitle')
+    # 指定排序后端类
+    filter_backends = [OrderingFilter]
+    # 指定排序字段
+    ordering_fields = ('id', 'bread')
 
     # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
     # todo 如何判断前端请求的方法是什么,通过self.action来获取

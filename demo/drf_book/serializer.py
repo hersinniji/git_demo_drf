@@ -173,7 +173,7 @@ class BookModelSerializer(serializers.ModelSerializer):
         # 指定根据哪个模型类生成的序列化字段
         model = BookInfo
         # 指定哪些字段生成序列化器字段
-        fields = ('btitle', 'bcomment')
+        fields = ('btitle', 'bcomment', 'id', 'bread')
         # fields = "__all__"
         # 取反生成字段
         # exclude = ('btitle',)
