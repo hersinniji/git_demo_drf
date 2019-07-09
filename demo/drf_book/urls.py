@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import views_mixinchildview
+from . import view_viewset
 urlpatterns = [
     # url(r'^book/$',views.BookView.as_view() ),
     # url(r'^hero/(?P<id>\d+)/$',views.HeroView.as_view() ),
@@ -16,6 +16,9 @@ urlpatterns = [
     # url(r'^drf_books/$', views_mixinview.BooksAPIView.as_view()),
     # url(r'^drf_books/(?P<pk>\d+)/$', views_mixinview.BookAPIView.as_view()),
     # 拓展类子类的使用
-    url(r'^drf_books/$', views_mixinchildview.BooksAPIView.as_view()),
-    url(r'^drf_books/(?P<pk>\d+)/$', views_mixinchildview.BookAPIView.as_view()),
+    # url(r'^drf_books/$', views_mixinchildview.BooksAPIView.as_view()),
+    # url(r'^drf_books/(?P<pk>\d+)/$', views_mixinchildview.BookAPIView.as_view()),
+    # viewset视图集使用
+    url(r'^viewset_books/$', view_viewset.BooksViewSet.as_view({'get': 'list', 'post': 'create'})),
+    url(r'^viewset_books/(?P<pk>\d+)/$', view_viewset.BookViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
