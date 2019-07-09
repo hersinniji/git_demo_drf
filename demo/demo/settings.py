@@ -149,31 +149,34 @@ CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 
 # REST_FRAMEWORK全局配置指定
 REST_FRAMEWORK = {
-    # 认证配置
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',   # 基本认证
-        'rest_framework.authentication.SessionAuthentication',  # session认证
-    ),
-    # 权限配置
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    )
-    # 用户限流
+    # # 认证配置
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.BasicAuthentication',   # 基本认证
+    #     'rest_framework.authentication.SessionAuthentication',  # session认证
+    # ),
+    # # 权限配置
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
+    # 全局限流配置,按照用户限流.AnonRateThrottle匿名用户,UserRateThrottle认证用户
     # 'DEFAULT_THROTTLE_CLASSES': (
     #     'rest_framework.throttling.AnonRateThrottle',
-    #     'rest_framework.throttling.UserRateThrottle'
+    #     'rest_framework.throttling.UserRateThrottle',
+
     # ),
     # 类视图限流
-    # 'DEFAULT_THROTTLE_CLASSES': (
-    #     'rest_framework.throttling.ScopedRateThrottle',
-    # ),
-    # # 次数控制
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.ScopedRateThrottle',
+    ),
+    # 指定限流次数.anon匿名用户限流次数,user认证用户限流次数
     # 'DEFAULT_THROTTLE_RATES': {
     #     # 'anon': '2/day',
     #     # 'user': '4/day'
-    #     'a': '2/day',
-    #     'b': '4/day'
     # },
+    'DEFAULT_THROTTLE_RATES': {
+        'a': '2/day',
+        'b': '4/day'
+    },
     # #指定过滤方法
     # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     # # 指定异常处理的方法

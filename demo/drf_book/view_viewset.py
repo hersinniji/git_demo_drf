@@ -16,6 +16,10 @@ class BooksViewSet(ViewSet):
     """
     获取所有图书和保存图书
     """
+
+    # 限流
+    throttle_scope = 'b'
+
     def list(self, request):
         """
         获取所有图书

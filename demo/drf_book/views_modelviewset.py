@@ -2,6 +2,7 @@ from rest_framework.authentication import BasicAuthentication, SessionAuthentica
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.throttling import UserRateThrottle
 from rest_framework.viewsets import ModelViewSet
 
 from book.models import BookInfo
@@ -15,10 +16,16 @@ class BooksModelViewSet(ModelViewSet):
     queryset = BookInfo.objects.all()
     # ② 指定序列化器
     serializer_class = BookSerializer
-    # ③ 指定认证
-    authentication_classes = [BasicAuthentication, SessionAuthentication]
-    # ④ 指定权限
-    permission_classes = [IsAuthenticated]
+    # # ③ 指定认证
+    # authentication_classes = [BasicAuthentication, SessionAuthentication]
+    # # ④ 指定权限
+    # permission_classes = [IsAuthenticated]
+    # ⑤ todo 要想限流,必须先指定用户,再指定限流次数,这样限流操作才会生效
+    # 这里注意不要写错 throttle_后面的内容
+    # --- 局部指定对什么用户进行限流操作 throttle_classes
+    # throttle_classes = [UserRateThrottle]
+    # --- 按照类视图形式完成限流操作 throttle_scope
+    throttle_scope = 'a'
 
     # todo 在同一个类视图中,要完成不同的序列化器的调用时,可以重写get_serializer_class函数的返回值
     # todo 如何判断前端请求的方法是什么,通过self.action来获取
