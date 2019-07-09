@@ -25,6 +25,12 @@ urlpatterns = [
     # url(r'^genericviewset_books/$', views_genericviewset.BooksGenericViewSet.as_view({'get': 'list', 'post': 'create'})),
     # url(r'^genericviewset_books/(?P<pk>\d+)/$', views_genericviewset.BookGenericViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
     # modelviewset视图集使用
+    # url(r'^modelviewset_books/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'list', 'post': 'create'})),
+    # url(r'^modelviewset_books/(?P<pk>\d+)/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
+    # modelviewset视图集使用(增加功能函数)
     url(r'^modelviewset_books/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'list', 'post': 'create'})),
     url(r'^modelviewset_books/(?P<pk>\d+)/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
+    url(r'^modelviewset_books/last_book/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'last_book'})),
+    url(r'^modelviewset_books/find/$', views_modelviewset.BooksModelViewSet.as_view({'get': 'find'})),
+
 ]
